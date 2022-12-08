@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "paths": {
+    "/projects": {
+      "name": "/projects",
+      "lambdaFunction": "projectHandler",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/projects/{id}": {
+      "name": "/projects/{id}",
+      "lambdaFunction": "projectHandler",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "paths": {
+    "/item": {
+      "name": "/item",
+      "lambdaFunction": "todoHandler",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/items/{id}": {
+      "name": "/items/{id}",
+      "lambdaFunction": "todoHandler",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

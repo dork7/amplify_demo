@@ -1,0 +1,10 @@
+{
+  "resourceName": "mtodo",
+  "tableName": "mtodo",
+  "partitionKey": {
+    "fieldName": "id",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}

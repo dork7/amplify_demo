@@ -1,0 +1,14 @@
+{
+  "httpMethod": "PUT",
+  "path": "/item",
+  "queryStringParameters": {
+    "limit": "10"
+  },
+  "pathParameters": {
+    "id": 12
+  },
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": "{\n  \"descp\" : \"this is a task\",\n  \"status\" : \"pending\"\n}"
+}
