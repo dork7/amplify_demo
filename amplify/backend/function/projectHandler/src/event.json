@@ -1,6 +1,6 @@
 {
   "httpMethod": "GET",
-  "path": "/projects",
+  "path": "/projects/12",
   "queryStringParameters": {
     "limit": "10"
   },

@@ -1,6 +1,6 @@
 {
-  "httpMethod": "PUT",
-  "path": "/item",
+  "httpMethod": "get",
+  "path": "/item/#ed0eaf",
   "queryStringParameters": {
     "limit": "10"
   },
@@ -10,5 +10,5 @@
   "headers": {
     "Content-Type": "application/json"
   },
-  "body": "{\n  \"descp\" : \"this is a task\",\n  \"status\" : \"pending\"\n}"
+  "body": "{\n \"status\" : \"undone\"\n}"
 }

@@ -40,21 +40,72 @@ const randomId = () => '#' + [...Array(6)].map(() => Math.floor(Math.random() * 
  * Example get method *
  **********************/
 
-app.put('/item', function (req, res) {
+app.put('/item/:id', function (req, res) {
   // Add your code here
+  const { id } = req.params
   const params = {
-    TableName: tableName
+    TableName: tableName,
+    Key: {
+      id: id,
+    },
+    ExpressionAttributeValues: {},
+    ReturnValues: 'UPDATED_NEW',
+  };
+  params.UpdateExpression = 'SET ';
+  if (req.body.descp) {
+    params.ExpressionAttributeValues[':descp'] = req.body.descp;
+    params.UpdateExpression += 'descp = :descp';
   }
-  res.json("ok PUT")
+  if (req.body.status) {
+    params.ExpressionAttributeNames = { '#newStatus': 'status' }
+    params.ExpressionAttributeValues[':status'] = req.body.status;
+    params.UpdateExpression += '#newStatus = :status';
+  }
+
+  console.log('params :>> ', params);
+  docClient.update(params, (error, result) => {
+    if (error) {
+      res.json({ statusCode: 500, error: error.message });
+    } else {
+      res.json({ statusCode: 200, body: result })
+    }
+  });
+
 });
 
 
-app.delete('/item', function (req, res) {
+app.delete('/item/:id', function (req, res) {
   // Add your code here
+
+  const { id } = req.params
   const params = {
-    TableName: tableName
+    TableName: tableName,
+    Key: {
+      id: id,
+    },
   }
-  res.json("ok delete")
+  docClient.delete(params, (error, result) => {
+    if (error) {
+      res.json({ statusCode: 500, error: error.message, url: request.url });
+    } else {
+      res.json({ statusCode: 200, body: JSON.stringify(result) })
+    }
+  });
+});
+
+app.get('/item/:id', function (req, res) {
+  // Add your code here
+  const { id } = req.params
+  const params = {
+    TableName: tableName,
+    Key: {
+      id: id,
+    },
+  }
+  docClient.get(params, function (err, data) {
+    if (err) return res.json({ err })
+    res.json({ statusCode: 200, body: JSON.stringify(data) })
+  })
 });
 
 app.get('/item', function (req, res) {
@@ -83,7 +134,7 @@ app.post('/item', function (req, res) {
   }
   docClient.put(params, function (err, data) {
     if (err) return res.json({ err })
-    res.json({ error: false, data })
+    res.json({ statusCode: 200, body: JSON.stringify(data) })
   })
 });
 

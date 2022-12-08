@@ -20,9 +20,9 @@ app.use(awsServerlessExpressMiddleware.eventContext())
 
 // Enable CORS for all methods
 app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*")
-  res.header("Access-Control-Allow-Headers", "*")
-  next()
+    res.header("Access-Control-Allow-Origin", "*")
+    res.header("Access-Control-Allow-Headers", "*")
+    next()
 });
 
 const AWS = require('aws-sdk')
@@ -30,7 +30,7 @@ const docClient = new AWS.DynamoDB.DocumentClient()
 
 let tableName = "todoTable";
 if (process.env.ENV && process.env.ENV !== "NONE") {
-  tableName = tableName + '-' + process.env.ENV;
+    tableName = tableName + '-' + process.env.ENV;
 }
 
 
@@ -40,39 +40,42 @@ const randomId = () => '#' + [...Array(6)].map(() => Math.floor(Math.random() * 
  * Example get method *
  **********************/
 
-app.get('/projects', function (req, res) {
-  // Add your code here
-  const params = {
-    TableName: tableName
-  }
-  docClient.scan(params, function (err, data) {
-    if (err) return res.json({ err })
-    res.json({ error: false, data })
-  })
+app.get('/projects/:id', function (req, res) {
+
+console.log('req.params :>> ', req.params);
+    // Add your code here
+    const params = {
+        TableName: tableName
+    }
+    //   docClient.scan(params, function (err, data) {
+    //     if (err) return res.json({ err })
+    //     res.json({ error: false, data })
+    // })
+    res.json({ msg: "hello from projects id"  , params : req.params})
 });
 
 app.post('/projects', function (req, res) {
-  // Add your code here
+    // Add your code here
 
-  const params = {
-    TableName: tableName,
-    // Key : 1,
-    Item: {
-      id: randomId(),
-      descp: req.body.descp,
-      status: req.body.status
+    const params = {
+        TableName: tableName,
+        // Key : 1,
+        Item: {
+            id: randomId(),
+            descp: req.body.descp,
+            status: req.body.status
+        }
+
     }
-
-  }
-  docClient.put(params, function (err, data) {
-    if (err) return res.json({ err })
-    res.json({ error: false, data })
-  })
+    docClient.put(params, function (err, data) {
+        if (err) return res.json({ err })
+        res.json({ error: false, data })
+    })
 });
 
 
 app.listen(3000, function () {
-  console.log("App started")
+    console.log("App started")
 });
 
 // Export the app object. When executing the application local this does nothing. However,
