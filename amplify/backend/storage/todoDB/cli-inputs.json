@@ -1,6 +1,6 @@
 {
-  "resourceName": "mtodo",
-  "tableName": "mtodo",
+  "resourceName": "todoDB",
+  "tableName": "todoTable",
   "partitionKey": {
     "fieldName": "id",
     "fieldType": "string"

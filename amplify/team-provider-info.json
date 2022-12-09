@@ -1,35 +1,28 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-todoapp-dev-154512-authRole",
-      "UnauthRoleArn": "arn:aws:iam::772796100940:role/amplify-todoapp-dev-154512-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::772796100940:role/amplify-todoapp-dev-154512-authRole",
+      "AuthRoleName": "amplify-todoapp-dev-163027-authRole",
+      "UnauthRoleArn": "arn:aws:iam::772796100940:role/amplify-todoapp-dev-163027-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::772796100940:role/amplify-todoapp-dev-163027-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-todoapp-dev-154512-deployment",
-      "UnauthRoleName": "amplify-todoapp-dev-154512-unauthRole",
-      "StackName": "amplify-todoapp-dev-154512",
-      "StackId": "arn:aws:cloudformation:us-east-1:772796100940:stack/amplify-todoapp-dev-154512/13ceaac0-7553-11ed-af8a-0a21287ffe1d",
-      "AmplifyAppId": "d3drn8urcsr23g"
+      "DeploymentBucketName": "amplify-todoapp-dev-163027-deployment",
+      "UnauthRoleName": "amplify-todoapp-dev-163027-unauthRole",
+      "StackName": "amplify-todoapp-dev-163027",
+      "StackId": "arn:aws:cloudformation:us-east-1:772796100940:stack/amplify-todoapp-dev-163027/baf69df0-76eb-11ed-83a8-0ef398f7dd65",
+      "AmplifyAppId": "dccp9v558y6ni"
     },
     "categories": {
       "function": {
-        "projectHandler": {
-          "deploymentBucketName": "amplify-todoapp-dev-154512-deployment",
-          "s3Key": "amplify-builds/projectHandler-2b54484a7a373573304b-build.zip"
-        },
         "todoHandler": {
-          "deploymentBucketName": "amplify-todoapp-dev-154512-deployment",
-          "s3Key": "amplify-builds/todoHandler-4b67565a516f38525670-build.zip"
-        },
-        "todoPut": {}
-      },
-      "api": {
-        "projectsApi": {},
-        "todoApi": {}
+          "deploymentBucketName": "amplify-todoapp-dev-163027-deployment",
+          "s3Key": "amplify-builds/todoHandler-5a4f5173443665726247-build.zip"
+        }
       },
       "storage": {
-        "todoTable": {},
-        "mtodo": {}
+        "todoDB": {}
+      },
+      "api": {
+        "todoApi": {}
       }
     }
   }

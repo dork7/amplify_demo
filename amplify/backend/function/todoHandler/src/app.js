@@ -34,7 +34,7 @@ if (process.env.ENV && process.env.ENV !== "NONE") {
 }
 
 
-const randomId = () => '#' + [...Array(6)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
+const randomId = () =>  [...Array(6)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
 
 /**********************
  * Example get method *

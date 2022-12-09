@@ -1,36 +1,18 @@
 {
+  "storage": {
+    "todoDB": {
+      "service": "DynamoDB",
+      "providerPlugin": "awscloudformation"
+    }
+  },
   "function": {
-    "projectHandler": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
     "todoHandler": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "todoPut": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
   "api": {
-    "projectsApi": {
-      "service": "API Gateway",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "projectHandler",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
-        }
-      ]
-    },
     "todoApi": {
       "service": "API Gateway",
       "providerPlugin": "awscloudformation",
@@ -42,26 +24,8 @@
             "Name",
             "Arn"
           ]
-        },
-        {
-          "category": "function",
-          "resourceName": "todoPut",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
         }
       ]
-    }
-  },
-  "storage": {
-    "todoTable": {
-      "service": "DynamoDB",
-      "providerPlugin": "awscloudformation"
-    },
-    "mtodo": {
-      "service": "DynamoDB",
-      "providerPlugin": "awscloudformation"
     }
   }
 }

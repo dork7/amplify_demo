@@ -7,13 +7,6 @@
       "permissions": {
         "setting": "open"
       }
-    },
-    "/items/{id}": {
-      "name": "/items/{id}",
-      "lambdaFunction": "todoHandler",
-      "permissions": {
-        "setting": "open"
-      }
     }
   }
 }

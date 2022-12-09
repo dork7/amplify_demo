@@ -1,14 +1,11 @@
 {
-  "httpMethod": "get",
-  "path": "/item/#ed0eaf",
+  "httpMethod": "POST",
+  "path": "/item",
   "queryStringParameters": {
     "limit": "10"
-  },
-  "pathParameters": {
-    "id": 12
   },
   "headers": {
     "Content-Type": "application/json"
   },
-  "body": "{\n \"status\" : \"undone\"\n}"
+  "body": "{\"msg\":\"Hello from the event.json body\"}"
 }
